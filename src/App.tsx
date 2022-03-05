@@ -1,22 +1,36 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Die } from './components/Die';
 import { nanoid } from 'nanoid'
+import Confetti from 'react-confetti'
 
 const MainContainer = styled.main`
+  margin-top: 60px;
   display: flex;
   justify-content: center;
 `
 const MainWrapper = styled.main`
   background-color: #F5F5F5;
   height: 400px;
-  width: 800px;
+  width: 700px;
   padding: 20px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+`
+const HeadText = styled.h1`
+  margin: 0;
+  margin-top: 20px;
+  font-size: 28px;
+  color: #2B283A;
+  font-weight: 700;
+`
+const DescriptionText = styled.p`
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
 `
 const DiesWrapper = styled.main`
   display: grid;
@@ -36,35 +50,78 @@ const RollButton = styled.button`
   font-weight: 700;
   cursor: pointer;
   &:active {
-    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
   }
 `
 
 function App() {
 
+  function holdDice(id: string) {
+    setDice(prev => prev.map(dice => {
+      return dice.id === id
+        ? { ...dice, isHeld: !dice.isHeld }
+        : dice
+    }))
+  }
+  function rollDice() {
+    setDice(prev => prev.map(dice => {
+      return dice.isHeld
+        ? dice
+        : generateNewDie()
+    }))
+  }
+  function newGame() {
+    setTenzies(false)
+    setDice(allNewDice())
+  }
   // Create array of random numbers from 1 to 6
-  const allNewDice = () => {
+  function allNewDice() {
     const dies = []
     for (let i = 0; i < 10; i++) {
-      dies.push({
-        id: nanoid(),
-        value: Math.ceil(Math.random() * 6),
-        isHeld: false
-      })
+      dies.push(generateNewDie())
     }
     return dies
   }
+  function generateNewDie() {
+    return {
+      id: nanoid(),
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false
+    }
+  }
 
   const [dice, setDice] = useState(allNewDice());
-  const diceElements = dice.map(dice => <Die key={dice.id} dice={dice.value} />)
+  const [tenzies, setTenzies] = useState(false);
+
+  useEffect(() => {
+    const firstValue = dice[0].value
+    const winCombination = dice.every(el => el.isHeld && el.value === firstValue)
+    if (winCombination) setTenzies(true)
+  }, [dice]);
+
+  const diceElements = dice.map(dice =>
+    <Die
+      key={dice.id}
+      dice={dice.value}
+      isHeld={dice.isHeld}
+      handleClick={() => holdDice(dice.id)} />
+  )
 
   return (
     <MainContainer>
       <MainWrapper>
+        {tenzies && <Confetti height={window.innerHeight - 1} />}
+        <HeadText>Tenzies</HeadText>
+        <DescriptionText>
+          Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
+        </DescriptionText>
         <DiesWrapper>
           {diceElements}
         </DiesWrapper>
-        <RollButton onClick={() => setDice(allNewDice())}>Roll</RollButton>
+        {tenzies
+          ? <RollButton onClick={() => newGame()}>New Game</RollButton>
+          : <RollButton onClick={() => rollDice()}>Roll</RollButton>
+        }
       </MainWrapper>
     </MainContainer>
   );
