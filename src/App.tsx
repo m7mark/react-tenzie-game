@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Die } from './components/Die';
 import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti'
+import { Counter } from './components/Counter';
 
 const MainContainer = styled.main`
   margin-top: 60px;
@@ -11,7 +12,7 @@ const MainContainer = styled.main`
 `
 const MainWrapper = styled.main`
   background-color: #F5F5F5;
-  height: 400px;
+  height: 500px;
   width: 700px;
   padding: 20px;
   border-radius: 8px;
@@ -57,9 +58,9 @@ const RollButton = styled.button`
     outline: none;
   }
 `
-
 function App() {
 
+  const bestCount = localStorage.getItem('best') || '0'
   function holdDice(id: string) {
     setDice(prev => prev.map(dice => {
       return dice.id === id
@@ -68,6 +69,7 @@ function App() {
     }))
   }
   function rollDice() {
+    setCounts(prev => prev + 1)
     setDice(prev => prev.map(dice => {
       return dice.isHeld
         ? dice
@@ -75,6 +77,11 @@ function App() {
     }))
   }
   function newGame() {
+    if (+bestCount > counts) {
+      localStorage.setItem('best', counts.toString())
+      setBest(counts.toString())
+    }
+    setCounts(0)
     setTenzies(false)
     setDice(allNewDice())
   }
@@ -96,11 +103,15 @@ function App() {
 
   const [dice, setDice] = useState(allNewDice());
   const [tenzies, setTenzies] = useState(false);
+  const [counts, setCounts] = useState(0);
+  const [best, setBest] = useState(bestCount);
 
   useEffect(() => {
     const firstValue = dice[0].value
     const winCombination = dice.every(el => el.isHeld && el.value === firstValue)
-    if (winCombination) setTenzies(true)
+    if (winCombination) {
+      setTenzies(true)
+    }
   }, [dice]);
 
   const diceElements = dice.map(dice =>
@@ -126,6 +137,7 @@ function App() {
           ? <RollButton onClick={() => newGame()}>New Game</RollButton>
           : <RollButton onClick={() => rollDice()}>Roll</RollButton>
         }
+        <Counter best={best} counts={counts}/>
       </MainWrapper>
     </MainContainer>
   );
