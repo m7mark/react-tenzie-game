@@ -8,7 +8,7 @@ const DieContainer = styled.div<{ isHeld: boolean }>`
   height: 50px;
   border-radius: 8px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-  font-size: 25px;
+  font-size: 1.5em;
   font-weight: 700;
   background-color: ${props => props.isHeld ? '#59E391' : 'white'};
   cursor: pointer;

@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 
 const BottomTextContainer = styled.div`
-  font-size: 18px;
+  font-size: 1.2em;
   font-weight: 300;
   position: relative;
   left: -80px;
-  margin-bottom: 20px;
+  margin: 0.8em 0;
 `
 const CountText = styled.p`
   margin: 0;

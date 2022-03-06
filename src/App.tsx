@@ -6,7 +6,7 @@ import Confetti from 'react-confetti'
 import { Counter } from './components/Counter';
 
 const MainContainer = styled.main`
-  margin-top: 60px;
+  margin-top: 4em;
   display: flex;
   justify-content: center;
 `
@@ -14,8 +14,8 @@ const MainWrapper = styled.main`
   background-color: #F5F5F5;
   height: 500px;
   width: 700px;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 2em;
+  border-radius: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,13 +23,14 @@ const MainWrapper = styled.main`
 `
 const HeadText = styled.h1`
   margin: 0;
-  margin-top: 20px;
-  font-size: 28px;
+  margin-top: .3em;
+  font-size: 2.4em;
   color: #2B283A;
   font-weight: 700;
 `
 const DescriptionText = styled.p`
-  font-size: 18px;
+  margin-top: 0;
+  font-size: 1.2em;
   font-weight: 300;
   text-align: center;
 `
@@ -43,11 +44,10 @@ const RollButton = styled.button`
   height: 50px;
   background-color: #5035FF;
   border-radius: 4px;
-  margin-top: 30px;
+  margin-top: 1em;
   border: none;
-  font-size: 18px;
+  font-size: 1.2em;
   color: white;
-  line-height: 19px;
   font-weight: 700;
   cursor: pointer;
   &:active {
