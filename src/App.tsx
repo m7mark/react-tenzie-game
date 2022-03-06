@@ -50,7 +50,11 @@ const RollButton = styled.button`
   font-weight: 700;
   cursor: pointer;
   &:active {
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    outline: none;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+  }
+  &:focus {
+    outline: none;
   }
 `
 
