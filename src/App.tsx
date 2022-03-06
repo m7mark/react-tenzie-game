@@ -77,7 +77,8 @@ function App() {
     }))
   }
   function newGame() {
-    if (+bestCount > counts) {
+    console.log(+bestCount);
+    if (counts < +bestCount || +bestCount === 0) {
       localStorage.setItem('best', counts.toString())
       setBest(counts.toString())
     }
@@ -137,7 +138,7 @@ function App() {
           ? <RollButton onClick={() => newGame()}>New Game</RollButton>
           : <RollButton onClick={() => rollDice()}>Roll</RollButton>
         }
-        <Counter best={best} counts={counts}/>
+        <Counter best={best} counts={counts} />
       </MainWrapper>
     </MainContainer>
   );
