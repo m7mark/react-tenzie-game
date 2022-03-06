@@ -1,6 +1,6 @@
 # Done (React Tenzies Game) lesson 4
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/65351642-dcb0-4eac-ae09-3c3979699049/deploy-status)](https://app.netlify.com/sites/codefigma2/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9f5aa8a7-ca68-4f6b-9661-f689927b64c4/deploy-status)](https://app.netlify.com/sites/tenzigame/deploys)
 
 `React`, `Typescript`, `@emotion/styled`
 
@@ -11,7 +11,7 @@ https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Tenzies
 
 ##### DEPLOY TO
 
-https://
+https://tenzigame.netlify.app
 
 ---
 
