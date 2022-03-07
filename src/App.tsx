@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
 import { Die } from './components/Die';
-import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti'
 import { Counter } from './components/Counter';
+import { allNewDice, generateNewDie } from './utils/generateDies';
 
 const MainContainer = styled.main`
   margin-top: 4em;
@@ -77,7 +77,6 @@ function App() {
     }))
   }
   function newGame() {
-    console.log(+bestCount);
     if (counts < +bestCount || +bestCount === 0) {
       localStorage.setItem('best', counts.toString())
       setBest(counts.toString())
@@ -85,21 +84,6 @@ function App() {
     setCounts(0)
     setTenzies(false)
     setDice(allNewDice())
-  }
-  // Create array of random numbers from 1 to 6
-  function allNewDice() {
-    const dies = []
-    for (let i = 0; i < 10; i++) {
-      dies.push(generateNewDie())
-    }
-    return dies
-  }
-  function generateNewDie() {
-    return {
-      id: nanoid(),
-      value: Math.ceil(Math.random() * 6),
-      isHeld: false
-    }
   }
 
   const [dice, setDice] = useState(allNewDice());
