@@ -10,7 +10,7 @@ https://youtu.be/bMknfKXIFA8
 
 https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Tenzies
 
-##### DEPLOY TO
+##### DEPLOY
 
 https://tenzigame.netlify.app
 
