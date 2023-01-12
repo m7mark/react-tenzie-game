@@ -12,6 +12,7 @@ const DiceContainer = styled.div<{ isHeld: boolean }>`
   font-size: 1.5em;
   font-weight: 700;
   background-color: ${(props) => (props.isHeld ? '#59E391' : 'white')};
+  user-select: none;
   cursor: pointer;
   @media (max-width: 480px) {
     width: 46px;

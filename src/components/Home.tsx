@@ -54,6 +54,7 @@ const RollButton = styled.button`
   color: white;
   font-weight: 700;
   cursor: pointer;
+  user-select: none;
   &:active {
     outline: none;
     box-shadow: inset 0px 0px 5px #c1c1c1;

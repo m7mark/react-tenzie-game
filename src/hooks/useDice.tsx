@@ -42,7 +42,7 @@ export const useDice = () => {
       key={dice.id}
       dice={dice.value}
       isHeld={dice.isHeld}
-      onClick={() => holdDice(dice.id)}
+      onClick={() => !isWin && holdDice(dice.id)}
     />
   ))
 
