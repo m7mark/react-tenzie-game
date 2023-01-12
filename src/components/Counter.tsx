@@ -1,36 +1,24 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
 const BottomTextContainer = styled.div`
   font-size: 1.2em;
   font-weight: 300;
-  position: relative;
-  left: -80px;
-  margin: 0.8em 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  gap: 2px;
+  margin-top: 6px;
+  margin-left: 28px;
 `
-const CountText = styled.p`
-  margin: 0;
-  padding-right: 10px;
-  position: absolute;
-  width: 150px;
-`
-const BestText = styled.p`
-  margin: 0;
-  position: absolute;
-  left: 100px;
-  width: 150px;
-`
-type Props = {
+interface CounterProps {
   counts: number
   best: string
 }
 
-export const Counter: React.FC<Props> = ({ counts, best }) => {
+export const Counter: React.FC<CounterProps> = ({ counts, best }) => {
   return (
-    <>
-      <BottomTextContainer>
-        <CountText>Counts: {counts}</CountText>
-        <BestText>Best: {best}</BestText>
-      </BottomTextContainer>
-    </>
+    <BottomTextContainer>
+      <p style={{ margin: 0 }}>Counts: {counts}</p>
+      <p style={{ margin: 0 }}>Best: {best}</p>
+    </BottomTextContainer>
   )
 }
