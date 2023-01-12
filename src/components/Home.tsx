@@ -68,7 +68,12 @@ export const Home = () => {
   return (
     <HomeContainer>
       <HomeWrapper>
-        {isWin && <Confetti height={window.innerHeight - 1} />}
+        {isWin && (
+          <Confetti
+            height={window.innerHeight - 1}
+            width={window.innerWidth - 1}
+          />
+        )}
         <HeadText>Tenzies</HeadText>
         <DescriptionText>
           Roll until all dice are the same. Click on dice to freeze it at its

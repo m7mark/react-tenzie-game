@@ -14,8 +14,8 @@ const DiceContainer = styled.div<{ isHeld: boolean }>`
   background-color: ${(props) => (props.isHeld ? '#59E391' : 'white')};
   cursor: pointer;
   @media (max-width: 480px) {
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
   }
 `
 interface DiceProps
