@@ -44,7 +44,7 @@ const DicesWrapper = styled.main`
   }
 `
 const RollButton = styled.button`
-  width: 130px;
+  width: 136px;
   height: 50px;
   background-color: #5035ff;
   border-radius: 4px;
