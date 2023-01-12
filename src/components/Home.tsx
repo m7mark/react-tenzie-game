@@ -12,7 +12,8 @@ const HomeWrapper = styled.main`
   background-color: #f5f5f5;
   height: 500px;
   width: 700px;
-  padding: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
   border-radius: 1em;
   display: flex;
   flex-direction: column;
@@ -31,11 +32,16 @@ const DescriptionText = styled.p`
   font-size: 1.2em;
   font-weight: 300;
   text-align: center;
+  padding-left: 2em;
+  padding-right: 2em;
 `
 const DicesWrapper = styled.main`
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
   gap: 20px;
+  @media (max-width: 480px) {
+    gap: 16px;
+  }
 `
 const RollButton = styled.button`
   width: 130px;
