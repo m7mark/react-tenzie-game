@@ -4,14 +4,11 @@
 
 `React`, `Typescript`, `@emotion/styled`
 
-https://youtu.be/bMknfKXIFA8
+[![Live Demo](https://user-images.githubusercontent.com/70297692/212308275-e85bcb74-3174-40c8-bb15-47773e18bb52.svg)](https://tenzigame.netlify.app) [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)](
+https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Tenzies)
 
-##### FIGMA
+## Features
 
-https://www.figma.com/file/FqsxRUhAaXM4ezddQK0CdR/Tenzies
-
-##### DEPLOY
-
-https://tenzigame.netlify.app
+Simple game created with react.
 
 ![preview](https://user-images.githubusercontent.com/70297692/201550235-693577d4-c748-4679-8c8b-ad5c9f322f59.png)
