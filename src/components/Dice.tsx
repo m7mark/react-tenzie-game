@@ -25,7 +25,7 @@ interface DiceProps
   isHeld: boolean
 }
 
-export const Dice: React.FC<DiceProps> = ({ dice, isHeld, ...rest }) => {
+export const Dice = ({ dice, isHeld, ...rest }: DiceProps) => {
   return (
     <DiceContainer isHeld={isHeld} {...rest}>
       {dice}

@@ -14,7 +14,7 @@ interface CounterProps {
   best: string
 }
 
-export const Counter: React.FC<CounterProps> = ({ counts, best }) => {
+export const Counter = ({ counts, best }: CounterProps) => {
   return (
     <BottomTextContainer>
       <p style={{ margin: 0 }}>Counts: {counts}</p>

@@ -9,6 +9,7 @@ const HomeContainer = styled.div`
   justify-content: center;
 `
 const HomeWrapper = styled.main`
+  margin: 0 40px;
   background-color: #f5f5f5;
   height: 500px;
   width: 700px;
@@ -19,6 +20,9 @@ const HomeWrapper = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  @media (max-width: 480px) {
+    margin: 0;
+  }
 `
 const HeadText = styled.h1`
   margin: 0;
